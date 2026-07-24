@@ -1,0 +1,33 @@
+a = arduino('COM6','Uno','Libraries','Ultrasonic');
+us = a.ultrasonic('D7','D6');
+
+
+
+%value= us.readDistance();
+%Data= us.readData();
+
+Data =[0:10];
+done = false;
+i=1;
+Tcollect = 5;
+T= tic ();
+while (~done)
+
+
+
+    value= us.readDistance();
+    Data(i)=value;
+    %ReadData= us.readData();
+    Tcurrent=toc (T);
+    i=i+1;
+    pause(1);
+
+    if (Tcurrent > 10)
+        done =true;
+    end
+
+end
+
+%value=us.readDistance();
+%Data(i)= value;
+disp(data);
